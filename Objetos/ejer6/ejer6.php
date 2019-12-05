@@ -10,12 +10,12 @@
 <body>
 <h1>Medidas del poligono</h1>
 <?php
-$num1= 4;
-$num2= 0;
-echo $num1." ";
-echo $num2." ";
 
-validar($num1,$num2);
+
+validar(1,5);
+validar(1,3);
+validar(1,0);
+
 
 function validar ($num1,$num2){
     try{
@@ -23,14 +23,15 @@ function validar ($num1,$num2){
             throw new Exception("No se puede dividir entre 0");
         }else{
             echo $resul = $num1/$num2;
+            echo "\n";
         }
     }catch (Exception $e){
         echo "Excepcion capturada: ".$e->getMessage();
+
     }finally{
 
     }
 }
-validar();
 
 
 ?>

@@ -1,0 +1,6 @@
+{
+    "name": "vagrant/ejer1",
+    "require": {
+        "phpunit/php-timer": "^2.1"
+    }
+}

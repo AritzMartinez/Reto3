@@ -11,19 +11,17 @@
 <h1>Medidas del poligono</h1>
 <?php
 
-$num1= 5;
-$num2= -1;
-echo $num1." ";
-echo $num2." ";
-
-validar($num1,$num2);
+validar(2,5);
+validar(2,3);
+validar(1,0);
+validar(-1,0);
 
 function validar ($num1,$num2){
     try{
         if ($num1 < 0 || $num2 < 0 ){
             throw new Exception("No se peude calular con numeros negativos");
         }else{
-            echo $resul = $num1 * $num2;
+            echo $resul = $num1 * $num2." ";
         }
     }catch (Exception $e){
         echo "Excepcion capturada: ".$e->getMessage();
@@ -31,7 +29,6 @@ function validar ($num1,$num2){
 
     }
 }
-validar();
 
 
 ?>

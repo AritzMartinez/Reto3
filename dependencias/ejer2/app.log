@@ -1,0 +1,6 @@
+
+[2019-12-05T12:34:35.765945+00:00] Paciente.WARNING: enfermar [] []
+[2019-12-05T12:34:41.520651+00:00] Paciente.DEBUG: curar [] []
+[2019-12-05T12:34:41.940305+00:00] Paciente.DEBUG: curar [] []
+[2019-12-05T12:34:50.823714+00:00] Paciente.WARNING: enfermar [] []
+[2019-12-05T12:34:51.255432+00:00] Paciente.WARNING: enfermar [] []
