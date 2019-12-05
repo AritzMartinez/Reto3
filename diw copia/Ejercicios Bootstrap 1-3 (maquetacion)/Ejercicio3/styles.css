@@ -1,0 +1,33 @@
+
+.colCoral{
+    background-color: greenyellow;
+}
+.colRojo{
+    background-color: red;
+}
+.colAmarillo{
+    background-color: yellow;
+}
+
+@media (max-width: 576px){
+
+    .colCoral{
+        background-color: coral;
+    }
+    .colRojo{
+        background-color: red;
+    }
+    .colAmarillo{
+        background-color: yellow;
+    }
+    .colCian{
+        background-color: cyan;
+    }
+
+}
+@media (max-width: 992px){
+    .colVerde{
+        background-color: greenyellow;
+    }
+
+}

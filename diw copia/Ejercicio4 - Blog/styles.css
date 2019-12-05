@@ -1,0 +1,21 @@
+.navegacion{
+    background-color: cyan;
+}
+.articulo{
+    background-color: green;
+}
+.seccion{
+    background-color: palevioletred;
+}
+.aside{
+    background-color: red;
+}
+.paginacion{
+    background-color: yellow;
+}
+.footer{
+ background-color: darkgray;
+}
+.jumbotron{
+    background-color: coral;
+}
