@@ -1,28 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Wild & Wacky Vegetables</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-  </head>
+    <link rel="stylesheet" href="../../bootstrap-4.4.1-dist/css/bootstrap.min.css">
+</head>
 
-  <body>
+<body>
+<div class="container">
+    <div class="row">
+    <div class="alert alert-danger col-xl-12" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <strong>Uh oh!</strong>Have you had your daily dose of veggies today??
+    </div>
+</div>
+    <div class="row">
+        <div class="sidebar col-xl-3">
+            <h1>Some Favorites</h1>
+            <ul>
+                <li><a href="#">Celery Root</a>
+                <li><a href="#">Spaghetti Squash</a>
+                <li><a href="#">Killer Mushrooms</a>
+            </ul>
+            <p class="search">
+                <input name="search" type="text" class="txt"/>
+                <button type="button" class="btn btn-primary btn-sm">Search Recipes</button>
+            </p>
+        </div>
 
-        <h1>Some Favorites</h1>
-        <ul>
-            <li><a href="#">Celery Root</a>
-            <li><a href="#">Spaghetti Squash</a>
-            <li><a href="#">Killer Mushrooms</a>
-        </ul>
-        
-        <h1>Wild & Wacky Vegetables</h1>
-        <p>Kale courgette salsify mustard broccoli seakale wakame potato fava bean tigernut leek celery spinach avocado cabbage celtuce rutabaga kohlrabi. Parsnip pea soko groundnut bitterleaf spring onion. Grape dulse rutabaga lentil gram kakadu plum water spinach cabbage lotus root.
-        </p>
-        <p>
-        Mung bean quandong kale prairie turnip celery gram zucchini pumpkin green bean silver beet chard endive komatsuna eggplant kakadu plum radish broccoli. Arugula amaranth fennel wakame peanut garlic chickweed. Sorrel jícama quandong kale chickpea water chestnut rock melon aubergine lettuce pea azuki bean cress onion sea lettuce dandelion nori dulse rutabaga. Coriander napa cabbage bok choy carrot kakadu plum brussels sprout bamboo shoot salad okra cucumber garlic kombu beet greens cauliflower summer purslane. Artichoke daikon horseradish arugula taro catsear kombu rock melon pea sprouts collard greens mustard courgette lettuce soko maize plantain.
-        </p>
+        <div class="main col-xl-9">
+            <h1>Wild & Wacky Vegetables</h1>
+            <blockquote>
+                <p>The Beet is the most intense of vegetables.The radish,admittedly,is more feverish,but the fire of the
+                    radish is cold
+                    fire thefire of discontent not passion.Tomatoes are lusty enough,yet there runs through tomatoes are
+                    undercurrent of
+                    frivolity.Beets are deady serious.</p>
+                <footer>Tom Robbins</footer>
+            </blockquote>
+            <h2>Some Diseases</h2>
+            <table class="table table-striped">
+                <tr>
+                    <td>Veggie</td>
+                    <td>Diseases</td>
+                </tr>
+                <tr>
+                    <td>Beets</td>
+                    <td>Beeturia</td>
+                </tr>
+                <tr>
+                    <td>Carrot</td>
+                    <td>Carotenosis</td>
+                </tr>
+            </table>
+            <img class="thumbnail "
+                 src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcREAkGSfSRB18DHbSUDIS6I0sfSjVRuh7wfeF8ntBoooEM4Nx6L"/>
+            <img class="thumbnail " src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRAfquuj9DIkz21UyfohsdzEYxMsqIh2cz6dkh2XuzLsIAmToUq"/>
+            <h1>Really Informative info</h1>
+            <p>Kale courgette salsify mustard broccoli seakale wakame potato fava bean tigernut leek celery spinach
+                avocado
+                cabbage celtuce rutabaga kohlrabi. Parsnip pea soko groundnut bitterleaf spring onion. Grape dulse
+                rutabaga
+                lentil gram kakadu plum water spinach cabbage lotus root.
+            </p>
+            <p>
+                Mung bean quandong kale prairie turnip celery gram zucchini pumpkin green bean silver beet chard endive
+                komatsuna eggplant kakadu plum radish broccoli. Arugula amaranth fennel wakame peanut garlic chickweed.
+                Sorrel
+                jícama quandong kale chickpea water chestnut rock melon aubergine lettuce pea azuki bean cress onion sea
+                lettuce
+                dandelion nori dulse rutabaga. Coriander napa cabbage bok choy carrot kakadu plum brussels sprout bamboo
+                shoot
+                salad okra cucumber garlic kombu beet greens cauliflower summer purslane. Artichoke daikon horseradish
+                arugula
+                taro catsear kombu rock melon pea sprouts collard greens mustard courgette lettuce soko maize plantain.
+            </p>
+        </div>
+    </div>
 
-  </body>
+</div>
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
 </html>
+
+
+<!--container div tag-->
+<!--<div class="container-fluid">
+    &lt;!&ndash;sidebar div tag&ndash;&gt;
+    <div id="sidebar">
+        <h4>Some Favorites</h4>
+        <ul>
+            <li>Celery Roots</li>
+            <li>Spaghetti Squash</li>
+            <li>Killer Mushrooms</li>
+        </ul>
+        <p class="search">
+            <input name="search" type="text" class="txt" />
+            <button type="button" class="btn btn-primary btn-sm">Search Recipes</button>
+        </p>
+    </div>
+    &lt;!&ndash;div tag main content&ndash;&gt;
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Uh oh!</strong>Have you had your daily dose of veggies today??
+    </div>
+    <div id="main">
+        <h1>Wild & Wacky Vegetables</h1>
+        <blockquote>
+            <p>The Beet is the most intense of vegetables.The radish,admittedly,is more feverish,but the fire of the radish is  cold
+                fire thefire of discontent not passion.Tomatoes are lusty enough,yet there runs through tomatoes are undercurrent of
+                frivolity.Beets are deady serious.</p>
+            <footer>Tom Robbins</footer>
+        </blockquote>
+        <h2>Some Diseases</h2>
+        <table class="table table-bordered">
+            <tr>
+                <td>Veggie</td>
+                <td>Diseases</td>
+            </tr>
+            <tr>
+                <td>Beets</td>
+                <td>Beeturia</td>
+            </tr>
+            <tr>
+                <td>Carrot</td>
+                <td>Carotenosis</td>
+            </tr>
+        </table>
+        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcREAkGSfSRB18DHbSUDIS6I0sfSjVRuh7wfeF8ntBoooEM4Nx6L"/>
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRAfquuj9DIkz21UyfohsdzEYxMsqIh2cz6dkh2XuzLsIAmTo
+        Uq"/>
+        &lt;!&ndash;paragraph start&ndash;&gt;
+        <h3>Really Informative info</h3>
+        <p>Kale courgette salsify mustard broccoli seakale wakame potato fava bean tigernut leek celery spinach avocado
+            cabbage celtuce rutabaga kohlrabi. Parsnip pea soko groundnut bitterleaf spring onion. Grape dulse rutabaga
+            lentil gramkakadu plum water spinach cabbage lotus root.
+
+            Mung bean quandong kale prairie turnip celery gram zucchini pumpkin green bean silver beet chard endive komatsuna
+            eggplant kakadu plum radish broccoli. Arugula amaranth fennel wakame peanut garlic chickweed. Sorrel jícama quandong
+            kale chickpea water chestnut rock melon aubergine lettuce pea azuki bean cress onion sea lettuce dandelion nori
+            dulse rutabaga. Coriander napa cabbage bok choy carrot kakadu plum brussels sprout bamboo shoot salad okra cucumber
+            garlic kombu beet greens cauliflower summer purslane. Artichoke daikon horseradish arugula taro catsear kombu rock
+            melon pea sprouts collard greens mustard courgette lettuce soko maize plantain.</p>&lt;!&ndash;paragraph end&ndash;&gt;
+    </div>
+</div>-->
