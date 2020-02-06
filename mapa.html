@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accessible Map</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+
+    <style>
+      a.skiplink {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+      }
+      a.skiplink:focus {
+        clip: auto;
+        height: auto;
+        width: auto;
+        background-color: #fff;
+        padding: 0.3em;
+      }
+      #map:focus {
+        outline: #4A74A8 solid 0.15em;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skiplink" href="#map">Go to map</a>
+    <div id="map" class="map" tabindex="0"></div>
+    <button id="zoom-out">Zoom out</button>
+    <button id="zoom-in">Zoom in</button>
+    <script>
+      var Gasteiz = ol.proj.fromLonLat([-2.5877665,42.8811127]);
+
+      var map = new ol.Map({
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        target: 'map',
+        controls: ol.control.defaults({
+          attributionOptions: {
+            collapsible: true
+          }
+        }),
+        view: new ol.View({
+          center: Gasteiz,
+          zoom: 6
+        })
+      });
+
+      document.getElementById('zoom-out').onclick = function() {
+        var view = map.getView();
+        var zoom = view.getZoom();
+        view.setZoom(zoom - 1);
+      };
+
+      document.getElementById('zoom-in').onclick = function() {
+        var view = map.getView();
+        var zoom = view.getZoom();
+        view.setZoom(zoom + 1);
+      };
+
+      var Markers = 
+[
+    {lat: 42.8811127, lng: -2.5877665},
+    {lat: 41.28247976112171, lng: 28.000645778308126}
+];
+
+var features = [];
+
+
+for (var i = 0; i < Markers.length; i++) {
+    var item = Markers[i];
+    var longitude = item.lng;
+    var latitude = item.lat;
+
+
+    var iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([longitude, latitude], 'EPSG:4326', 'EPSG:3857'))
+    });
+
+    var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(({
+            anchor: [0.5, 1],
+            src:  "http://maps.gstatic.com/intl/de_de/mapfiles/ms/micons/red-pushpin.png"
+        }))
+    });
+
+    iconFeature.setStyle(iconStyle);
+    features.push(iconFeature);
+
+}
+
+var vectorSource = new ol.source.Vector({
+    features: features
+});
+
+var vectorLayer = new ol.layer.Vector({
+    source: vectorSource
+});
+map.addLayer(vectorLayer);
+
+map.on('click', function (evt) { 
+  console.log(evt.coordinate); 
+  alert(ol.proj.transform(evt.coordinate, 'EPSG:4326', 'EPSG:4326'))
+});
+
+
+
+
+/*
+map.on('click', onMapClick);
+
+
+function onMapClick(e) {
+  
+  alert(e.lng);
+    var lat  = e.latlng.lat.toFixed(5);
+    var lon  = e.latlng.lng.toFixed(5);
+    var gps = "";
+
+    if (lat>0) gps+='N'; else gps+='S';
+    if (10>Math.abs(lat))  gps += "0";
+    gps += Math.abs(lat).toFixed(5)+" ";
+    if (lon>0) gps+='E'; else gps+='W';
+    if (10>Math.abs(lon))  gps += "0";
+    if (100>Math.abs(lon)) gps += "0";
+    gps += Math.abs(lon).toFixed(5);
+    var textArea = document.createElement("textarea");
+
+    textArea.style.position = 'fixed';
+    textArea.style.top = 0;
+    textArea.style.left = 0;
+    textArea.style.width = '2em';
+    textArea.style.height = '2em';
+    textArea.style.padding = 0;
+    textArea.style.border = 'none';
+    textArea.style.outline = 'none';
+    textArea.style.boxShadow = 'none';
+    textArea.style.background = 'transparent';
+    textArea.value = gps;
+    document.body.appendChild(textArea);
+    textArea.select();
+
+    try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'Successfully' : 'Unsuccessfully';
+      console.log(msg + ' copied ' + gps + ' to clipboard ');
+    } catch (err) {
+      console.log('Oops, unable to copy');
+    }
+
+    document.body.removeChild(textArea);
+
+}
+
+  
+var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+var osm = new L.TileLayer(osmUrl, {minZoom:2, maxZoom:19});   
+
+var googleStreets = new L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{minZoom:1, maxZoom:19, subdomains:['mt0','mt1','mt2','mt3']});
+
+var googleSat = new L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{minZoom:1, maxZoom: 21,subdomains:['mt0','mt1','mt2','mt3']});
+
+var map = new L.Map('mapDiv', { doubleClickZoom:false, zoomControl:false, maxBounds:([[90,-270],[-90,270]]) });
+
+L.control.layers({"OSM (Mapnik)": osm, "Google Street": googleStreets, "Google Earth": googleSat}).addTo(map);
+
+map.addLayer(osm);
+var map_set = "osm";
+map.fitBounds([[0,-180],[0,180]]);
+*/
+    </script>
+  </body>
+</html>

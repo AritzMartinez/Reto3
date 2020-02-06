@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accessible Map</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+</head>
+<body>
+<div id="map" class="map"></div>
+<script>
+    var Gasteiz = ol.proj.fromLonLat([-2.5877665,42.8811127]);
+    var map = new ol.Map({
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        target: 'map',
+        controls: ol.control.defaults({
+            attributionOptions: {
+                collapsible: true
+            }
+        }),
+        view: new ol.View({
+            center: Gasteiz,
+            zoom: 6
+
+        })
+    });
+
+    map.on('click', function (evt) {
+        var coord = map.getCoordinateFromPixel(evt.pixel);
+        var coords = feature.getGeometry().getCoordinates();
+        alert(coord);
+    });
+</script>
+</body>
+</html>
